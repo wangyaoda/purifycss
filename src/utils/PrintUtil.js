@@ -1,16 +1,16 @@
-let startTime
-let beginningLength
+let startTime;
+let beginningLength;
 
 const printInfo = endingLength => {
-    const sizeReduction = (((beginningLength - endingLength) / beginningLength) * 100).toFixed(1)
+    const sizeReduction = (((beginningLength - endingLength) / beginningLength) * 100).toFixed(1);
     console.log(`
     ________________________________________________
     |
     |   PurifyCSS has reduced the file size by ~ ${sizeReduction}%  
     |
     ________________________________________________
-    `)
-}
+    `);
+};
 
 const printRejected = rejectedTwigs => {
     console.log(`
@@ -20,16 +20,16 @@ const printRejected = rejectedTwigs => {
     |   ${rejectedTwigs.join("\n    |\t")}
     |
     ________________________________________________
-    `)
-}
+    `);
+};
 
 const startLog = cssLength => {
-    startTime = new Date()
-    beginningLength = cssLength
-}
+    startTime = new Date();
+    beginningLength = cssLength;
+};
 
-export default {
+module.exports = {
     printInfo,
     printRejected,
     startLog
-}
+};
