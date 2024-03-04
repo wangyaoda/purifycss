@@ -18,7 +18,7 @@ const OPTIONS = {
   //  白名单 一个选择器数组，始终保留在其中，列入['button-active','*modal']
   //  这将保留包含modal的任何选择器和匹配button-active的选择器
   whitelist: [],
-  //  minify的规则  按照options 进行缩小Css
+  //  minify的规则  按照options 进行压缩CSS
   cleanCssOptions: {},
 };
 
@@ -32,6 +32,16 @@ const getOptions = (options = {}) => {
   return opt;
 };
 
+/**
+ *
+ * @param {*} cssSource  Css 字符串
+ * @param {*} options  传入要配置的options 用于指定压缩的行为 是否启用压缩 是否保留注释等
+ * @returns
+ */
+// 创建一个CleanCss实例,然后调用实例中的minify方法对CSS进行压缩
+/* 
+Clean CSS 是一个用于压缩CSS的JavaScript库 它能够通过移除注释、空格和其他不必要的字符来减小 CSS 文件的大小，从而提高网站的加载速度并减少网络传输的数据量。 CleanCSS 还提供了一些选项，可以根据需要定制压缩的行为，例如保留特定的注释或空格。
+*/
 const minify = (cssSource, options) =>
   new CleanCss(options).minify(cssSource).styles;
 
@@ -56,19 +66,30 @@ const purify = (searchThrough, css, options, callback) => {
   // 获取参数的默认值
   options = getOptions(options);
 
-    // 处理CSS 和 模板内容
-    
+  // 处理CSS 和 模板内容
+  // 如果CSS和模板是数组的形式传入的 合并成一个字符串 返回回来
+  // 如果是模板的情况下 会使用UglifyJS进行压缩处理
   let cssString = FileUtil.filesToSource(css, "css");
-    
   let content = FileUtil.filesToSource(searchThrough, "content");
 
-//   console.log("输出的content模板内容:", content);
+  //  console.log("输出的content模板内容:", content);
 
+  // console.log(minify(cssString));
+
+  // 记录 css 长度 ? 可能后边要使用
   PrintUtil.startLog(minify(cssString).length);
 
-  let wordsInContent = getAllWordsInContent(content),
-    selectorFilter = new SelectorFilter(wordsInContent, options.whitelist),
-    tree = new CssTreeWalker(cssString, [selectorFilter]);
+  // getAllWordsInContent 将传入的模板中的每一个单词拆出 组成一个 JavaScript 对象格式
+  // 包括其中的类名 eg:类名 delayed-content => delayed content 两个单词
+  let wordsInContent = getAllWordsInContent(content);
+
+  // 传入将模板拆解出的对象 和 我们要保留类名的白名单
+  // SelectorFilter 是一个用于过滤 CSS 选择器的工具。
+  let selectorFilter = new SelectorFilter(wordsInContent, options.whitelist);
+
+
+  let tree = new CssTreeWalker(cssString, [selectorFilter]);
+
   tree.beginReading();
   let source = tree.toString();
 

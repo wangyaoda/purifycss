@@ -14,10 +14,57 @@
   --swiper-navigation-size: 44px;
 }
 
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active {
+  transform: scale(1);
+}
+
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
+  transform: scale(1);
+}
+
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {
+  transform: scale(0.66);
+}
+
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
+  transform: scale(0.33);
+}
+
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
+  transform: scale(0.66);
+}
+
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {
+  transform: scale(0.33);
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #007aff;
+  background: var(--swiper-pagination-color, var(--swiper-theme-color));
+}
+
 @keyframes swiper-preloader-spin {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.swiper-container-fade .swiper-slide-active,.swiper-container-fade .swiper-slide-active .swiper-slide-active {
+  pointer-events: auto;
+}
+
+.swiper-container-cube .swiper-slide-active,.swiper-container-cube .swiper-slide-active .swiper-slide-active {
+  pointer-events: auto;
+}
+
+.swiper-container-cube .swiper-slide-active {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.swiper-container-flip .swiper-slide-active,.swiper-container-flip .swiper-slide-active .swiper-slide-active {
+  pointer-events: auto;
 }
 
 @font-face {
@@ -482,6 +529,20 @@ template {
   outline: 0;
 }
 
+.skip-main:active {
+  background: #fff;
+  color: blue;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: auto;
+  margin: 0.625rem;
+  padding: 0.3125rem;
+  font-size: 1.4rem;
+  z-index: 999;
+}
+
 html {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   box-sizing: border-box;
@@ -517,6 +578,57 @@ p {
   margin-top: 0;
 }
 
+.popout-nav__toggle--active {
+  transform: rotate(180deg);
+}
+
+.hamburger--active .hamburger__span {
+  transform: translateX(-3.125rem);
+  background: rgba(0, 0, 0, 0);
+}
+
+.hamburger--active .hamburger__span:before {
+  transform: rotate(45deg) translate(2.1875rem, -2.1875rem);
+  width: 1.710625rem;
+  width: var(--hamburger-width);
+}
+
+.hamburger--active .hamburger__span:after {
+  transform: rotate(-45deg) translate(2.1875rem, 2.1875rem);
+  width: 1.710625rem;
+  width: var(--hamburger-width);
+}
+
+.search-toggle--active:before {
+  opacity: 0;
+}
+
+.search-toggle--active .search-toggle__close-icon {
+  opacity: 1;
+}
+
+.toc__toggle:active {
+  outline: 1px solid #0099ff;
+  outline: 1px solid var(--primary);
+}
+
+.toc__toggle--active .toc__toggle-icon {
+  opacity: 0;
+}
+
+.toc__toggle--active .toc__close-icon {
+  opacity: 1;
+}
+
+.toc--active .toc__container {
+  max-height: 50rem;
+}
+
+.toc--active .toc__list {
+  opacity: 1;
+  pointer-events: all;
+}
+
 @media (max-width: 991px) {
   .post-read-time {
     grid-row: 3;
@@ -547,6 +659,17 @@ p {
   }
 }
 
+.breadcrumb__item--active {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.tabs__pane--active {
+  display: block;
+}
+
 .clear::before,.clear::after {
   content: "";
   display: table;
@@ -563,6 +686,20 @@ p {
   --bigButtonColor: var(--accent-1);
 }
 
+.leadgen-offer-link--image a:active,.content .leadgen-offer-link--image a:active {
+  opacity: 0.8;
+  transition: 0.2s linear;
+}
+
+.leadgen-offer-link--button .leadgen-offer-link__link:active,.content .leadgen-offer-link--button .leadgen-offer-link__link:active {
+  background: #fff;
+  border-color: #048ae3;
+  border-color: var(--bigButtonColor);
+  color: #048ae3;
+  color: var(--bigButtonColor);
+  transition: 0.2s linear;
+}
+
 :root {
   --adPlaceholderDisplay: block;
 }
@@ -571,6 +708,10 @@ p {
   :root {
     --contentAdOffsetTop: 32rem;
   }
+}
+
+.offers__toggle--active {
+  color: #fff;
 }
 
 .continue-template__content {
@@ -735,6 +876,24 @@ h1,h2,h3,h4 {
   }
 }
 
+.toc__toggle--active {
+  background: url(../img/bundled.close-icon.svg) no-repeat center/0.75rem auto;
+  filter: drop-shadow(0 -0.25rem 0.125rem rgba(14, 155, 215, 0.38));
+}
+
+.toc--active .toc__heading:after {
+  opacity: 1;
+}
+
+.toc__link:active {
+  color: #0099ff;
+  color: var(--primary);
+}
+
+.toc__link--active {
+  font-weight: 700;
+}
+
 .post-title {
   border-bottom: none;
   font-size: 1.375rem;
@@ -792,7 +951,26 @@ h1,h2,h3,h4 {
   }
 }
 
+.breadcrumb__item--active {
+  font-weight: 400;
+}
+
+.hamburger--active:after {
+  opacity: 0;
+}
+
 /*# sourceMappingURL=main.min.css.map*/
+
+.search-switcher__text-input:active {
+  border: 1px solid #0099ff;
+  border: 1px solid var(--primary);
+}
+
+.search-switcher__button--active {
+  background: #0099ff;
+  background: var(--primary);
+  color: #fff;
+}
 
 body {
   --logo-width: 20.4375rem;
@@ -800,6 +978,437 @@ body {
   --search-button-width: 4.6875rem;
   color: #000000;
   color: var(--black);
+}
+
+.answerFindr
+    article.content
+    > p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(.section__button--variation-8):not(
+      .section__button--variation-5
+    ):not(.section__button--variation-8):not(.section__button):not(
+      .tabs__button
+    ):not(.newsletter__button):active {
+  text-decoration: none;
+}
+
+.answerFindr .continue-template__btn:active {
+  text-decoration: none;
+}
+
+.answerFindr .button:active,.answerFindr .section__button:active,.answerFindr .tabs__button:active,.answerFindr .newsletter__button:active,.answerFindr .section__button--variation-5:active,.answerFindr .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.answerFindr .button--secondary:active {
+  box-shadow: none;
+}
+
+.retiredAndThriving
+    article.content
+    > p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(.section__button--variation-8):not(
+      .section__button--variation-5
+    ):not(.section__button--variation-8):not(.section__button):not(
+      .tabs__button
+    ):not(.newsletter__button):active {
+  text-decoration: none;
+}
+
+.retiredAndThriving .continue-template__btn:active {
+  text-decoration: none;
+}
+
+.retiredAndThriving .button:active,.retiredAndThriving .section__button:active,.retiredAndThriving .tabs__button:active,.retiredAndThriving .newsletter__button:active,.retiredAndThriving .section__button--variation-5:active,.retiredAndThriving .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.retiredAndThriving .button--secondary:active {
+  box-shadow: none;
+}
+
+.goodNewsGreatReviews
+    article.content
+    > p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(.section__button--variation-8):not(
+      .section__button--variation-5
+    ):not(.section__button--variation-8):not(.section__button):not(
+      .tabs__button
+    ):not(.newsletter__button):active {
+  text-decoration: none;
+}
+
+.goodNewsGreatReviews .continue-template__btn:active {
+  text-decoration: none;
+}
+
+.goodNewsGreatReviews .button:active,.goodNewsGreatReviews .section__button:active,.goodNewsGreatReviews .tabs__button:active,.goodNewsGreatReviews .newsletter__button:active,.goodNewsGreatReviews .section__button--variation-5:active,.goodNewsGreatReviews .section__button--variation-8:active {
+  background: #0099ff;
+  background: var(--primary);
+  box-shadow: none;
+}
+
+.goodNewsGreatReviews .button--secondary:active {
+  background: rgba(0, 0, 0, 0);
+}
+
+.retirementLife411
+    article.content
+    > p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(.section__button--variation-8):not(
+      .section__button--variation-5
+    ):not(.section__button--variation-8):not(.section__button):not(
+      .tabs__button
+    ):not(.newsletter__button):active {
+  text-decoration: none;
+}
+
+.retirementLife411 .continue-template__btn:active {
+  text-decoration: none;
+}
+
+.retirementLife411 .button:active,.retirementLife411 .section__button:active,.retirementLife411 .tabs__button:active,.retirementLife411 .newsletter__button:active,.retirementLife411 .section__button--variation-5:active,.retirementLife411 .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.retirementLife411 .button--secondary:active {
+  background: #048ae3;
+  background: var(--accent-1);
+  color: #fff;
+}
+
+.trustedMarketResearcher
+    article.content
+    > p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(.section__button--variation-8)
+    :not(.section__button--variation-5)
+    :not(.section__button--variation-8)
+    :not(.section__button)
+    :not(.tabs__button)
+    :not(.newsletter__button):active {
+  color: #000000;
+  color: var(--black);
+}
+
+.trustedMarketResearcher .continue-template__btn:active {
+  color: #000000;
+  color: var(--black);
+}
+
+.trustedMarketResearcher .button:active,.trustedMarketResearcher .section__button:active,.trustedMarketResearcher .tabs__button:active,.trustedMarketResearcher .newsletter__button:active,.trustedMarketResearcher .section__button--variation-5:active,.trustedMarketResearcher .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.trustedMarketResearcher .button--secondary:active {
+  background: #048ae3;
+  background: var(--accent-1);
+  color: #fff;
+}
+
+.healthVersed .trending__item:active {
+  background: #048ae3;
+  background: var(--accent-1);
+}
+
+.dealFind
+    .content
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.dealFind
+    .content
+    p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.dealFind .content ul a:active,.dealFind .content ol a:active,.dealFind .content blockquote a:active,.dealFind .content table a:active {
+  color: #048ae3;
+  color: var(--accent-1);
+}
+
+.dealFind .button:active,.dealFind .section__button:active,.dealFind .tabs__button:active,.dealFind .newsletter__button:active,.dealFind .section__button--variation-5:active,.dealFind .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.contentPulseHub .toc__link:active {
+  color: #0195f9;
+  color: var(--accent-3);
+}
+
+.adInsightPro .toc__link:active {
+  color: #0195f9;
+  color: var(--accent-3);
+}
+
+.contentCrazeHub
+    .content
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.contentCrazeHub
+    .content
+    p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.contentCrazeHub .content ul a:active,.contentCrazeHub .content ol a:active,.contentCrazeHub .content blockquote a:active,.contentCrazeHub .content table a:active {
+  color: #0195f9;
+  color: var(--accent-3);
+}
+
+.contentCrazeHub .button:active,.contentCrazeHub .section__button:active,.contentCrazeHub .tabs__button:active,.contentCrazeHub .newsletter__button:active,.contentCrazeHub .section__button--variation-5:active,.contentCrazeHub .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.contentCrazeHub .toc__link:active {
+  color: #0195f9;
+  color: var(--accent-3);
+}
+
+.insightHivePro .toc__link:active {
+  color: #0195f9;
+  color: var(--accent-3);
+}
+
+.digitalDiscoverPro
+    .content
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.digitalDiscoverPro
+    .content
+    p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.digitalDiscoverPro .content ul a:active,.digitalDiscoverPro .content ol a:active,.digitalDiscoverPro .content blockquote a:active,.digitalDiscoverPro .content table a:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.digitalDiscoverPro .button:active,.digitalDiscoverPro .section__button:active,.digitalDiscoverPro .tabs__button:active,.digitalDiscoverPro .newsletter__button:active,.digitalDiscoverPro .section__button--variation-5:active,.digitalDiscoverPro .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.digitalDiscoverPro .toc__link:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.trendyInsightHub .toc__link:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.clickCraftedInsight
+    .content
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.clickCraftedInsight
+    .content
+    p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.clickCraftedInsight .content ul a:active,.clickCraftedInsight .content ol a:active,.clickCraftedInsight .content blockquote a:active,.clickCraftedInsight .content table a:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.clickCraftedInsight .button:active,.clickCraftedInsight .section__button:active,.clickCraftedInsight .tabs__button:active,.clickCraftedInsight .newsletter__button:active,.clickCraftedInsight .section__button--variation-5:active,.clickCraftedInsight .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.clickCraftedInsight .toc__link:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.trendInsight360 .toc__link:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.queryCrafters .toc__link:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.infoPulseSearch
+    .content
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.infoPulseSearch
+    .content
+    p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.infoPulseSearch .content ul a:active,.infoPulseSearch .content ol a:active,.infoPulseSearch .content blockquote a:active,.infoPulseSearch .content table a:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.infoPulseSearch .button:active,.infoPulseSearch .section__button:active,.infoPulseSearch .tabs__button:active,.infoPulseSearch .newsletter__button:active,.infoPulseSearch .section__button--variation-5:active,.infoPulseSearch .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.infoPulseSearch .toc__link:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.inquiredMind .toc__link:active {
+  color: #0195f9;
+  color: var(--accent-3);
+}
+
+.financeFacets
+    .content
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.financeFacets
+    .content
+    p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.financeFacets .content ul a:active,.financeFacets .content ol a:active,.financeFacets .content blockquote a:active,.financeFacets .content table a:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.financeFacets .button:active,.financeFacets .section__button:active,.financeFacets .tabs__button:active,.financeFacets .newsletter__button:active,.financeFacets .section__button--variation-5:active,.financeFacets .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.financeFacets .toc__link:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.financeFacets .trending__item:active {
+  background: #0099ff;
+  background: var(--primary);
+}
+
+.studyStreamLine .button:active,.studyStreamLine .section__button:active,.studyStreamLine .tabs__button:active,.studyStreamLine .newsletter__button:active,.studyStreamLine .section__button--variation-5:active,.studyStreamLine .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.studyStreamLine .toc__link:active {
+  color: #eef7ff;
+  color: var(--accent-2);
+}
+
+.studyStreamLine .trending__item:active {
+  background: #0099ff;
+  background: var(--primary);
+}
+
+.rideReads .button:active,.rideReads .section__button:active,.rideReads .tabs__button:active,.rideReads .newsletter__button:active,.rideReads .section__button--variation-5:active,.rideReads .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.rideReads .toc__link:active {
+  color: #048ae3;
+  color: var(--accent-1);
+}
+
+.rideReads .trending__item:active {
+  background: #0099ff;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.employmentElevation
+    .content
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.employmentElevation
+    .content
+    p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.employmentElevation .content ul a:active,.employmentElevation .content ol a:active,.employmentElevation .content blockquote a:active,.employmentElevation .content table a:active {
+  color: #0195f9;
+  color: var(--accent-3);
+}
+
+.employmentElevation .button:active,.employmentElevation .section__button:active,.employmentElevation .tabs__button:active,.employmentElevation .newsletter__button:active,.employmentElevation .section__button--variation-5:active,.employmentElevation .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.employmentElevation .toc__link:active {
+  color: #0195f9;
+  color: var(--accent-3);
+}
+
+.employmentElevation .trending__item:active {
+  background: #0099ff;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.webWavelet
+    .content
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.webWavelet
+    .content
+    p
+    a:not(.button):not(.section__button):not(.tabs__button):not(
+      .newsletter__button
+    ):not(.section__button--variation-5):not(
+      .section__button--variation-8
+    ):active,.webWavelet .content ul a:active,.webWavelet .content ol a:active,.webWavelet .content blockquote a:active,.webWavelet .content table a:active {
+  color: #0195f9;
+  color: var(--accent-3);
+}
+
+.webWavelet .button:active,.webWavelet .section__button:active,.webWavelet .tabs__button:active,.webWavelet .newsletter__button:active,.webWavelet .section__button--variation-5:active,.webWavelet .section__button--variation-8:active {
+  box-shadow: none;
+}
+
+.webWavelet .toc__link:active {
+  color: #0195f9;
+  color: var(--accent-3);
+}
+
+.webWavelet .trending__item:active {
+  background: #0099ff;
+  background: var(--primary);
+  color: var(--white);
 }
 
 .single-post[\:has\(.rsoc-load-progress\)] main {

@@ -144,6 +144,13 @@ let options = {
   info: true,
   minify: false,
   output: "./newOutput.css",
+  whitelist: [
+    "container",
+    "container::before",
+    "button-active",
+    "container[data-v78988729]",
+    "*active*",
+  ],
 };
 
 // console.log("css", css);

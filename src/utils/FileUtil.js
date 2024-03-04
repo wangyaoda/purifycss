@@ -10,12 +10,15 @@ const compressCode = (code) => {
     // 将输入的字符串解析成抽象语法树
     let ast = UglifyJS.parse(code);
     //   对AST 进行作用域分析
+    // 为了确定代码中的各个变量和函数的作用域范围，以便后续的压缩操作能够正确的处理这些函数和变量
     ast.figure_out_scope();
-    //   创建一个压缩器 (Compressor) 对象 配置为不生成警告信息
+    //   创建一个压缩器 (Compressor) 对象 配置为不生成警告信息，执行代码压缩的操作
     let compressor = UglifyJS.Compressor({ warnings: false });
     //   使用压缩器对AST进行转换 进行代码压缩处理
+    // 删除不必要的空格 合并相似的代码结构 简化表达式，减小代码体积 提高代码的执行效率
     ast = ast.transform(compressor);
     //   再次计算作用域分析
+    // 这次的操作可能会引入新的变量名和函数名 ，确保新引入的标识符和现有的不会冲突
     ast.figure_out_scope();
     //   计算字符频率 用于变量名混淆
     ast.compute_char_frequency();
